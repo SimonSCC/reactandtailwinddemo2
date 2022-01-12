@@ -8,11 +8,13 @@ TailwindCSS
 React
 (Database?)
 
+Perhaps work with a ASP.NET API as backend, that is using a DB.
+
 Project will be the following:
 
 Drinks maker - Tell the user which cocktails he can make with certain ingredients.
 
-App should:
+# App should:
 
     - Save ingredients for a specific user (First time around use localstorage)
     - User can add from a list of known ingredients, write them and get suggestions.

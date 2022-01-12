@@ -8,7 +8,7 @@ class MyIngredients extends React.Component {
 
   render() {
     return (
-      <div className=" flex text-red-500">
+      <div className=" flex ">
         <h1 className=" ">Ingredients</h1>
       </div>
     );
