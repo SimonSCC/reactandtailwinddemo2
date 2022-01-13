@@ -1,15 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import IngredientView from "./IngredientView";
 
 function Home() {
-  let ingredients = [{ name: "Ginger" }, { name: "Cola" }];
+  let ingredients = localStorage.getItem("myingredients");
+  if (!ingredients) ingredients = [{ name: "You have no ingredients!" }];
+
   return (
-    <div>
+    <div className="">
       <div className="text-center border-b-2 border-color15">
         <span className="text-4xl">Home</span>
       </div>
       <div className="flex flex-row w-full">
-        <IngredientExplaination></IngredientExplaination>
         <IngredientOverview ingredients={ingredients}></IngredientOverview>
       </div>
     </div>
@@ -18,29 +20,20 @@ function Home() {
 
 function IngredientOverview(props) {
   return (
-    <div className="defaultBox w-1/2  ">
+    <div className="defaultBox w-full h-1/3  ">
+      <IngredientExplaination></IngredientExplaination>
+      <hr className="mt-5 mb-5"></hr>
       <span className="text-lg ">Your ingredients</span>
-      <p>Your ingredients are:</p>
-      <Ingredient ingredients={props.ingredients}></Ingredient>
+      <IngredientView ingredients={props.ingredients}></IngredientView>
     </div>
   );
-}
-
-function Ingredient(props) {
-  if (props.ingredients.length > 0) {
-    return props.ingredients.map(function (item) {
-      return <p> {item.name}</p>;
-    });
-  } else {
-    return [];
-  }
 }
 
 function IngredientExplaination() {
   let navigate = useNavigate();
 
   return (
-    <div className=" defaultBox w-1/3 mr-10">
+    <div className=" ">
       <h1>Explaination</h1>
       <p>Add to your list of ingredients, and view which cocktails you can create</p>
       <button
@@ -49,7 +42,7 @@ function IngredientExplaination() {
           navigate("/myingredients");
         }}
       >
-        My ingredients
+        Add to my ingredients
       </button>
     </div>
   );
