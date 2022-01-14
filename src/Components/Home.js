@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import IngredientView from "./IngredientView";
+import DataAccess from "../Classes/DataAccess";
 
 function Home() {
-  let ingredients = localStorage.getItem("myingredients");
+  let ingredients = DataAccess.getAllLocalStorageKeysAsIngredients();
   if (!ingredients) ingredients = [{ name: "You have no ingredients!" }];
 
   return (
