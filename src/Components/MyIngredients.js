@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import DataAccess from "../Classes/DataAccess";
 import Ingredients from "../Classes/Ingredients";
 import IngredientView from "./IngredientView";
 import ApiCommuncator from "../Classes/ApiCommunicator";
+import axios from "axios";
 
 class MyIngredients extends React.Component {
   constructor(props) {
@@ -58,18 +59,48 @@ function MyIngredientsDisplay(props) {
   );
 }
 
-function AllIngredientsDisplay(props) {
-  let allAvailableIngre = new Ingredients().AllIngredients;
+class AllIngredientsDisplay extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      allAvailableIngredients: [],
+      OnClick: props.onClick,
+    };
+  }
 
-  return (
-    <div className="defaultBox w-1/2 overflow-auto">
-      <span className="text-xl">All ingredients</span>
-      <div className="flex items-center flex-wrap justify-center text-left">
-        <IngredientView ingredients={allAvailableIngre} onClick={props.onClick} btnText="Add"></IngredientView>
+  componentDidMount() {
+    axios.get("https://localhost:44316/CocktailOptions/AllIngredients").then((response) => {
+      let currentState = this.state;
+      this.setState({
+        allAvailableIngredients: response.data,
+        OnClick: currentState.OnClick,
+      });
+    });
+  }
+
+  render() {
+    return (
+      <div className="defaultBox w-1/2 overflow-auto">
+        <span className="text-xl">All ingredients</span>
+        <div className="flex items-center flex-wrap justify-center text-left">
+          <IngredientView ingredients={this.state.allAvailableIngredients} onClick={this.state.OnClick} btnText="Add"></IngredientView>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
+
+// function AllIngredientsDisplay(props) {
+//   let allAvailableIngre;
+//   axios.get("https://localhost:44316/CocktailOptions/AllIngredients").then((response) => {
+//     console.log(response);
+//     allAvailableIngre = response.data;
+//   });
+
+//   return (
+
+//   );
+// }
 
 // function getAllLocalStorageItems() {
 //   return Object.keys(localStorage).map(function (item) {
