@@ -1,9 +1,7 @@
-I've followed fireship tutorial: https://www.youtube.com/watch?v=pfaSUYaSgRo
+I've followed fireship tutorial: https://www.youtube.com/watch?v=pfaSUYaSgRo</br>
 Full repo from Fireship: https://github.com/fireship-io/tailwind-dashboard/tree/main/src
 -Follow additional tutorial on React'
 -Callbacks javascript learn more
-
-- master javascript and c#
 
 # TO DO:
 
