@@ -2,13 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import IngredientView from "./IngredientView";
 import DataAccess from "../Classes/DataAccess";
+import ApiCommuncator from "../Classes/ApiCommunicator";
 
 function Home() {
   let ingredients = DataAccess.getAllLocalStorageKeysAsIngredients();
   if (!ingredients) ingredients = [{ name: "You have no ingredients!" }];
 
   return (
-    <div className="">
+    <div>
       <div className="text-center border-b-2 border-color15">
         <span className="text-4xl">Home</span>
       </div>
@@ -21,11 +22,13 @@ function Home() {
 
 function IngredientOverview(props) {
   return (
-    <div className="defaultBox w-full h-1/3  ">
+    <div className="defaultBox w-full h-1/3 overflow-auto  ">
       <IngredientExplaination></IngredientExplaination>
       <hr className="mt-5 mb-5"></hr>
       <span className="text-lg ">Your ingredients</span>
-      <IngredientView ingredients={props.ingredients}></IngredientView>
+      <div className="h-32 flex items-center flex-wrap justify-center text-left overflow-auto">
+        <IngredientView ingredients={props.ingredients}></IngredientView>
+      </div>
     </div>
   );
 }
@@ -34,7 +37,7 @@ function IngredientExplaination() {
   let navigate = useNavigate();
 
   return (
-    <div className=" ">
+    <div>
       <h1>Explaination</h1>
       <p>Add to your list of ingredients, and view which cocktails you can create</p>
       <button

@@ -4,7 +4,7 @@ class Ingredients {
   constructor() {}
 
   get AllIngredients() {
-    console.log(myData);
+    // console.log(myData);
     return myData;
   }
 }

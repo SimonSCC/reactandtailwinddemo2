@@ -21,7 +21,7 @@ function IngredientView(props) {
     if (!props.btnText) {
       return props.ingredients.map(function (item) {
         return (
-          <div className=" flex flex-row items-center p-2 border-2 border-color3 rounded-md m-2 bg-color1">
+          <div className=" flex flex-row items-center p-2 border-2 border-color3 rounded-md m-2 bg-color1 w-1/4 justify-center flex-wrap ">
             <p> {item.name}</p>{" "}
           </div>
         );
@@ -30,7 +30,7 @@ function IngredientView(props) {
 
     return props.ingredients.map(function (item) {
       return (
-        <div className=" flex flex-row items-center p-2 border-2 border-color3 rounded-md m-2 bg-color1">
+        <div className=" flex flex-row items-center p-2 border-2 border-color3 rounded-md m-2 bg-color1 w-1/4">
           <button className="defaultBtn scale-75 p-3 hover:scale-90" onClick={() => onClickEvent(item, props)}>
             {props.btnText}
           </button>

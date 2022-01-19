@@ -25,4 +25,7 @@ Drinks maker - Tell the user which cocktails he can make with certain ingredient
     - With an ingredient list he should be proposed a list of recipies that he can make with said ingredients.
     - API Get common ingredients
     - Maybe hook up with https://www.thecocktaildb.com/ or another DB, AND add own.
-    - Maybe make bot, that checks recipies from Educated Barfly and Anders Erikson, and How to drink, and always includes with a vid link
+    - Maybe make bot, that checks recipies from Educated Barfly and Anders Erikson, and How to drink, and always includes with a vid link ( THIS IS FOCUS )
+
+
+    - Program will find which videos you can watch from those people, where you have the ingredients.

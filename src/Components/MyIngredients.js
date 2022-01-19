@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import DataAccess from "../Classes/DataAccess";
 import Ingredients from "../Classes/Ingredients";
 import IngredientView from "./IngredientView";
+import ApiCommuncator from "../Classes/ApiCommunicator";
 
 class MyIngredients extends React.Component {
   constructor(props) {
@@ -13,10 +14,8 @@ class MyIngredients extends React.Component {
     this.updateMyIngredients();
   }
   updateMyIngredients() {
-    console.log("here");
     const ingred = this.state;
     ingred.MyIngredients = DataAccess.getAllLocalStorageKeysAsIngredients();
-    console.log(ingred);
     this.setState({ MyIngredients: ingred.MyIngredients });
   }
 
@@ -26,7 +25,7 @@ class MyIngredients extends React.Component {
         <div className="text-center border-b-2 border-color15">
           <span className="text-4xl">Ingredients</span>
         </div>
-        <div className="flex flex-row w-full h-1/2">
+        <div className="flex flex-row w-full h-1/2 ">
           <MyIngredientsDisplay
             Ingredients={this.state.MyIngredients}
             onClick={() => {
@@ -50,9 +49,11 @@ function MyIngredientsDisplay(props) {
 
   console.log("myIngredients" + props.Ingredients);
   return (
-    <div className="defaultBox w-1/2 mr-10">
+    <div className="defaultBox w-1/2 mr-10 overflow-auto">
       <span className="text-xl">My ingredients</span>
-      <IngredientView ingredients={props.Ingredients} onClick={props.onClick} btnText="Delete"></IngredientView>
+      <div className="flex items-center flex-wrap justify-center text-left">
+        <IngredientView ingredients={props.Ingredients} onClick={props.onClick} btnText="Delete"></IngredientView>
+      </div>
     </div>
   );
 }
@@ -61,9 +62,9 @@ function AllIngredientsDisplay(props) {
   let allAvailableIngre = new Ingredients().AllIngredients;
 
   return (
-    <div className="defaultBox w-1/2 ">
+    <div className="defaultBox w-1/2 overflow-auto">
       <span className="text-xl">All ingredients</span>
-      <div className="flex items-center">
+      <div className="flex items-center flex-wrap justify-center text-left">
         <IngredientView ingredients={allAvailableIngre} onClick={props.onClick} btnText="Add"></IngredientView>
       </div>
     </div>

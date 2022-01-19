@@ -14,7 +14,7 @@ const SideBar = () => {
 
 function SideBarIcon(props) {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   return (
     <Link to={props.path}>
       <div className={`sidebar-icon group ${location.pathname === "/" + props.path ? "sidebar-hover-style bg-primary" : ""}`}>

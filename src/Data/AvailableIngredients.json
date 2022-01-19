@@ -22,5 +22,38 @@
   },
   {
     "name": "Triple sec liqueur"
+  },
+  {
+    "name": "Tequila"
+  },
+  {
+    "name": "Mezcal"
+  },
+  {
+    "name": "Amaro"
+  },
+  {
+    "name": "Cachaça"
+  },
+  {
+    "name": "Lime"
+  },
+  {
+    "name": "Lemon"
+  },
+  {
+    "name": "Pinapple"
+  },
+  {
+    "name": "Jägermeister"
+  },
+  {
+    "name": "Akvavit"
+  },
+  {
+    "name": "Wine"
+  },
+  {
+    "name": "Beer"
   }
 ]
