@@ -1,9 +1,6 @@
-import React, { Suspense } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 import DataAccess from "../Classes/DataAccess";
-import Ingredients from "../Classes/Ingredients";
 import IngredientView from "./IngredientView";
-import ApiCommuncator from "../Classes/ApiCommunicator";
 import axios from "axios";
 
 class MyIngredients extends React.Component {

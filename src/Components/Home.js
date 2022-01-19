@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import IngredientView from "./IngredientView";
 import DataAccess from "../Classes/DataAccess";
-import ApiCommuncator from "../Classes/ApiCommunicator";
 
 function Home() {
   let ingredients = DataAccess.getAllLocalStorageKeysAsIngredients();
