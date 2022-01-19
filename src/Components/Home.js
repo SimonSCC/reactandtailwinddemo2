@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import IngredientView from "./IngredientView";
 import DataAccess from "../Classes/DataAccess";
+import RecipeView from "./RecipeView";
 
 function Home() {
   let ingredients = DataAccess.getAllLocalStorageKeysAsIngredients();
@@ -14,6 +15,9 @@ function Home() {
       </div>
       <div className="flex flex-row w-full">
         <IngredientOverview ingredients={ingredients}></IngredientOverview>
+      </div>
+      <div className="flex flex-row justify-between text-center flex-wrap overflow-auto h-96">
+        <RecipeView ingredients={ingredients}></RecipeView>
       </div>
     </div>
   );
