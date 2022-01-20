@@ -1,6 +1,7 @@
 import { render } from "@testing-library/react";
 import React from "react";
 import axios from "axios";
+import MeasurementType from "../Classes/MeasurementTypeEnum";
 
 class RecipeView extends React.Component {
   constructor(props) {
@@ -39,7 +40,11 @@ class RecipeView extends React.Component {
             <div>
               <p>
                 {each.recipe.map(function (ingr) {
-                  return <p>{ingr.ingredient.name}</p>;
+                  return (
+                    <div>
+                      <p>{displayIngredientWithMeasurement(ingr)}</p>
+                    </div>
+                  );
                 })}
               </p>
             </div>
@@ -52,6 +57,16 @@ class RecipeView extends React.Component {
           <h1>None found..</h1>
         </div>
       );
+  }
+}
+
+function displayIngredientWithMeasurement(ingr) {
+  let result = Object.keys(MeasurementType).find((key) => MeasurementType[key] === ingr.measurement.measurementType);
+  console.log(result);
+  if (result === "note") {
+    return ingr.ingredient.name;
+  } else {
+    return ingr.measurement.amount + result + " " + ingr.ingredient.name;
   }
 }
 
