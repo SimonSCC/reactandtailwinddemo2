@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import axios from "axios";
 import MeasurementType from "../Classes/MeasurementTypeEnum";
@@ -34,12 +33,12 @@ class RecipeView extends React.Component {
         return (
           <div className="m-5 w-1/3 text-center flex flex-col items-center">
             <h2 className="mb-2">{each.title}</h2>
-            <a href={"https://www.youtube.com/watch?v=" + each.link}>
-              <img src={each.thumbnail.url} width={250} className="" alt="Thumbnail"></img>
+            <a href={"https://www.youtube.com/watch?v=" + each.videoInfo.link}>
+              <img src={each.videoInfo.thumbnail.url} width={250} className="" alt="Thumbnail"></img>
             </a>
             <div>
               <p>
-                {each.recipe.map(function (ingr) {
+                {each.measurementOfIngredients.map(function (ingr) {
                   return (
                     <div>
                       <p>{displayIngredientWithMeasurement(ingr)}</p>
