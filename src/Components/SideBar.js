@@ -2,12 +2,14 @@ import { BsFillArchiveFill, BsFillBellFill, BsFillHouseFill } from "react-icons/
 import { FaFire, FaPoo } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
+import { FaGlassMartiniAlt } from "react-icons/fa";
+import { GiSchoolBag } from "react-icons/gi";
 
 const SideBar = () => {
   return (
     <div className="fixed top-0 left-0 h-screen w-48 m-0 flex flex-col  text-foreground shadow-lg bg-gradient-to-b from-color8/10 via-color1 to-color8/5 rounded-lg">
-      <SideBarIcon icon={<BsFillHouseFill size="52" />} path="home" tooltip="Home" />
-      <SideBarIcon icon={<FaFire size="52" />} path="myingredients" tooltip="My ingredients" />
+      <SideBarIcon icon={<FaGlassMartiniAlt size="44" />} path="home" tooltip="What can I make" />
+      <SideBarIcon icon={<GiSchoolBag size="52" />} path="myingredients" tooltip="My ingredients" />
     </div>
   );
 };
