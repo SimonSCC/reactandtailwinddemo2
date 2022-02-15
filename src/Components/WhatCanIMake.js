@@ -4,14 +4,14 @@ import IngredientView from "./IngredientView";
 import DataAccess from "../Classes/DataAccess";
 import RecipeView from "./RecipeView";
 
-function Home() {
+function WhatCanIMake() {
   let ingredients = DataAccess.getAllLocalStorageKeysAsIngredients();
   if (!ingredients) ingredients = [{ name: "You have no ingredients!" }];
 
   return (
     <div>
       <div className="text-center border-b-2 border-color15">
-        <span className="text-4xl">Home</span>
+        <span className="text-4xl">What can I make</span>
       </div>
       <div className="flex flex-row w-full">
         <IngredientOverview ingredients={ingredients}></IngredientOverview>
@@ -55,4 +55,4 @@ function IngredientExplaination() {
   );
 }
 
-export default Home;
+export default WhatCanIMake;
