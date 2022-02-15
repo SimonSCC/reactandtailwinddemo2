@@ -1,7 +1,6 @@
 import "./App.css";
 import SideBar from "./Components/SideBar";
 import MyIngredients from "./Components/MyIngredients";
-import ErrorPage from "./Components/ErrorPage";
 import Home from "./Components/Home";
 
 import React from "react";
@@ -17,7 +16,7 @@ function App() {
             <Routes>
               <Route path="/myingredients" element={<MyIngredients />} />
               <Route path="/home" element={<Home />} />
-              <Route path="*" element={<ErrorPage />} />
+              <Route path="*" element={<Home />} />
             </Routes>
           </div>
         </div>
