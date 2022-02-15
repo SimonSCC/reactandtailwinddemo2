@@ -31,7 +31,7 @@ class RecipeView extends React.Component {
     if (this.state.recipies.length > 0) {
       return this.state.recipies.map(function (each) {
         return (
-          <div className="m-5 w-1/3 text-center flex flex-col items-center">
+          <div className="mx-16 w-1/3 text-center flex flex-col items-center defaultBox ">
             <h2 className="mb-2">{each.title}</h2>
             <a href={"https://www.youtube.com/watch?v=" + each.videoInfo.link}>
               <img src={each.videoInfo.thumbnail.url} width={250} className="" alt="Thumbnail"></img>
@@ -53,7 +53,7 @@ class RecipeView extends React.Component {
     } else
       return (
         <div>
-          <h1>None found..</h1>
+          <h1>Could not retrieve any recipies..</h1>
         </div>
       );
   }

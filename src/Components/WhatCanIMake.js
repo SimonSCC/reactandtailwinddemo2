@@ -9,14 +9,14 @@ function WhatCanIMake() {
   if (!ingredients) ingredients = [{ name: "You have no ingredients!" }];
 
   return (
-    <div>
+    <div className="h-full flex flex-col">
       <div className="text-center border-b-2 border-color15">
         <span className="text-4xl">What can I make</span>
       </div>
-      <div className="flex flex-row w-full">
+      {/* <div className="flex flex-row w-full">
         <IngredientOverview ingredients={ingredients}></IngredientOverview>
-      </div>
-      <div className="flex flex-row justify-between text-center flex-wrap overflow-auto h-96">
+      </div> */}
+      <div className="flex flex-row justify-center text-center flex-wrap overflow-auto h-1/1">
         <RecipeView ingredients={ingredients}></RecipeView>
       </div>
     </div>
