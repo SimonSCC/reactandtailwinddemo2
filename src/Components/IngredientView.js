@@ -4,13 +4,24 @@ function IngredientView(props) {
   //Shorthand conditional assign, determined by btnText
 
   let filteredIngredients;
-  if (props.activeIngredients) {
-    filteredIngredients = props.ingredients.filter((i) => !props.activeIngredients.includes(i.item));
+  if (props.activeIngredients && props.ingredients && props.btnText === "Add" && props.ingredients.length > 0) {
+    console.log("ingredients " + props.ingredients.length);
+    console.log("active " + props.activeIngredients.length);
+
+    filteredIngredients = props.ingredients.slice(); //Copies the array, instead of arr = arr which would just store the pointer
+    for (let y = 0; y < props.activeIngredients.length; y++) {
+      for (let i = 0; i < filteredIngredients.length; i++) {
+        if (filteredIngredients[i].name === props.activeIngredients[y].name) {
+          filteredIngredients.splice(i, 1);
+        }
+      }
+    }
+
+    console.log("Filtered: " + filteredIngredients.length);
   } else {
     filteredIngredients = props.ingredients;
   }
 
-  console.log(filteredIngredients);
   let onClickEvent;
   if (props.btnText) {
     onClickEvent =

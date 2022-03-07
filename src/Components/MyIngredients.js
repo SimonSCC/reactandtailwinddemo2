@@ -14,6 +14,7 @@ class MyIngredients extends React.Component {
   updateMyIngredients() {
     const ingred = this.state;
     ingred.MyIngredients = DataAccess.getAllLocalStorageKeysAsIngredients();
+    console.log(ingred.MyIngredients);
     this.setState({ MyIngredients: ingred.MyIngredients });
   }
 
