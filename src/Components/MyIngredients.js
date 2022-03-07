@@ -19,18 +19,22 @@ class MyIngredients extends React.Component {
 
   render() {
     return (
-      <div className="h-full">
+      <div className="h-full mb-10">
         <div className="text-center border-b-2 border-color15">
           <span className="text-4xl">Ingredients</span>
         </div>
-        <div className="flex flex-row w-full h-1/2 ">
-          <MyIngredientsDisplay
+        <div className="flex flex-row w-full h-full pb-10 ">
+          {/* <MyIngredientsDisplay
             Ingredients={this.state.MyIngredients}
             onClick={() => {
               this.updateMyIngredients();
             }}
-          ></MyIngredientsDisplay>
+          >
+
+          </MyIngredientsDisplay> */}
+
           <AllIngredientsDisplay
+            Ingredients={this.state.MyIngredients}
             onClick={() => {
               this.updateMyIngredients();
             }}
@@ -77,10 +81,16 @@ class AllIngredientsDisplay extends React.Component {
 
   render() {
     return (
-      <div className="defaultBox w-1/2 overflow-auto">
+      <div className="defaultBox w-full overflow-auto">
         <span className="text-xl">All ingredients</span>
         <div className="flex items-center flex-wrap justify-center text-left">
-          <IngredientView ingredients={this.state.allAvailableIngredients} onClick={this.state.OnClick} btnText="Add"></IngredientView>
+          <IngredientView ingredients={this.props.Ingredients} onClick={this.props.onClick} btnText="Delete"></IngredientView>
+          <IngredientView
+            ingredients={this.state.allAvailableIngredients}
+            activeIngredients={this.props.Ingredients}
+            onClick={this.state.OnClick}
+            btnText="Add"
+          ></IngredientView>
         </div>
       </div>
     );
@@ -104,5 +114,10 @@ class AllIngredientsDisplay extends React.Component {
 //     return { name: item };
 //   });
 // }
+
+// this.props.allAvailableIngredients = this.props.allAvailableIngredients.filter(function (item) {
+//   console.log(item);
+//   return !this.props.Ingredients.includes(item.name);
+// });
 
 export default MyIngredients;
