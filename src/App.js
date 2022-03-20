@@ -2,6 +2,7 @@ import "./App.css";
 import SideBar from "./Components/SideBar";
 import MyIngredients from "./Components/MyIngredients";
 import WhatCanIMake from "./Components/WhatCanIMake";
+import AllRecipies from "./Components/AllRecipies";
 
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
@@ -16,6 +17,7 @@ function App() {
             <Routes>
               <Route path="/myingredients" element={<MyIngredients />} />
               <Route path="/whatcanimake" element={<WhatCanIMake />} />
+              <Route path="/allrecipies" element={<AllRecipies />} />
               <Route path="*" element={<Navigate to="/whatcanimake" replace />} />
             </Routes>
           </div>
